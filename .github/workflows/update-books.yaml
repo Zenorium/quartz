@@ -1,4 +1,4 @@
-name: Sync Books and Deploy Quartz
+name: Sync Books
 
 on:
   repository_dispatch:
@@ -27,11 +27,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add content/books
           git commit -m "Auto-update books from repo" || echo "No changes to commit"
-          git push origin main || echo "No changes to push"
-
-      - name: Trigger Deploy Workflow
-        uses: peter-evans/repository-dispatch@v2
-        with:
-            token: ${{ secrets.QUARTZ_PAT }}
-            repository: Zenorium/quartz
-            event-type: deploy
+          git push origin main || echo "No changes to push

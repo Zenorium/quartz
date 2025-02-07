@@ -4,8 +4,10 @@ on:
   push:
     branches:
       - v4
-  repository_dispatch:
-    types: [deploy]
+  workflow_run:
+    workflows: ["Sync Books"]
+    types:
+      - completed
  
 permissions:
   contents: read

@@ -13,13 +13,14 @@ jobs:
       - name: Checkout Quartz repository
         uses: actions/checkout@v3
         with:
-          submodules: recursive 
+          submodules: true 
           fetch-depth: 0 
 
-      - name: Pull latest book content
+      - name: Checkout the latest commit in books submodule
         run: |
           cd content/books
-          git submodule update --remote --merge
+          git checkout main   # Ensure we are on the correct branch
+          git pull origin main  # Fetch the latest changes
 
       - name: Commit and Push Updates
         run: |

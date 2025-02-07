@@ -32,6 +32,6 @@ jobs:
       - name: Trigger Deploy Workflow
         uses: peter-evans/repository-dispatch@v2
         with:
-            token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.QUARTZ_PAT }}
             repository: Zenorium/quartz
             event-type: deploy

@@ -32,7 +32,6 @@ jobs:
       - name: Update SubModules
         run: |
           git submodule update --init --recursive
-          git pull origin main
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact

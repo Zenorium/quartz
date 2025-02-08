@@ -8,14 +8,14 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Zenorium | زنوریوم",
+    pageTitle: "Zenorium",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "fa-IR",
+    locale: "en-US",
     baseUrl: "zenorium.dev",
     ignorePatterns: ["private", "templates", ".obsidian", ".github", "**/README.md"],
     defaultDateType: "created",

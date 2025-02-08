@@ -8,6 +8,8 @@ on:
 jobs:
   update-books:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Quartz repository
@@ -27,4 +29,4 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
           git add content/books
-          git diff --cached --quiet || (git commit -m "Update submodule to latest books from main" && git push https://x-access-token:${{ secrets.QUARTZ_PAT }}@github.com/${{ github.repository }}.git)
+          git diff --cached --quiet || (git commit -m "Update submodule to latest books from main" && git push)

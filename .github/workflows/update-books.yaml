@@ -15,19 +15,21 @@ jobs:
       - name: Checkout Quartz repository
         uses: actions/checkout@v4
         with:
-          ssh-key: ${{secrets.WORKFLOW_PUSH}}
+          ssh-key: ${{secrets.DEPLOY_KEY}}
           submodules: true 
           fetch-depth: 0 
+          ref: 'v4'
 
+      - name: Configure git
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
       - name: Checkout the latest commit in books submodule
         run: |
           cd content/books
           git checkout main   # Ensure we are on the correct branch
           git pull origin main  # Fetch the latest changes
-
       - name: Commit and Push Updates
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions@github.com"
           git add content/books
           git diff --cached --quiet || (git commit -m "Update submodule to latest books from main" && git push)

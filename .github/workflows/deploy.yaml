@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - v4
-  workflow_run:
-    workflows: ["Sync Books"]
-    types:
-      - completed
  
 permissions:
   contents: read
